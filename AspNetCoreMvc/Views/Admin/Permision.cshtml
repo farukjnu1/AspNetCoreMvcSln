@@ -1,0 +1,54 @@
+﻿@model AspNetCoreMvc.Models.UserLogin
+
+@{
+    ViewData["Title"] = "Permision";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Permision</h2>
+
+<h4>UserLogin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Permision">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserPass" class="control-label"></label>
+                <input asp-for="UserPass" class="form-control" />
+                <span asp-validation-for="UserPass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserType" class="control-label"></label>
+                <input asp-for="UserType" class="form-control" />
+                <span asp-validation-for="UserType" class="text-danger"></span>
+                <select asp-for="UserType">
+                    <option value="1">Admin</option>
+                    <option value="2">General</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <strong>Student:</strong>
+                <input type="hidden" name="menuId" value="1" />
+                Read <input type="checkbox" name="isRead" value="true" /><input name="isRead" type="hidden" value="false" />
+                Create <input type="checkbox" name="isCreate" value="true" /><input name="isCreate" type="hidden" value="false" />
+                Update <input type="checkbox" name="isUpdate" value="true" /><input name="isUpdate" type="hidden" value="false" />
+                Delete <input type="checkbox" name="isDelete" value="true" /><input name="isDelete" type="hidden" value="false" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
